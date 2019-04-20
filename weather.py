@@ -32,4 +32,3 @@ while(True):
                 print('There was an error with your request: ' + resp['message'])
             else:
                 print('{desc} {maxTemp} degrees Kelvin'.format(desc=resp['weather'][0]['main'], maxTemp=resp['main']['temp_max']))
-# api.openweathermap.org/resp/2.5/weather?zip={zip code},{country code}
