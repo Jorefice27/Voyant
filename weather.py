@@ -8,27 +8,27 @@ while(True):
     userInput = input('$').strip()
     if userInput.lower() == 'exit':
         break
-
+    # expecting imput in the form "Weather {zip} {country}"
     arr = userInput.split(' ')
     if arr[0].lower() != 'weather':
         print('Request must begin with "weather"')
     else:
-        if len(arr) == 3:
+        if len(arr) == 3: # country code provided
             r = requests.get(url=url, params={
                 'zip': arr[1] + ',' + arr[2],
                 'appId': apiKey,
             })
-        elif len(arr) == 2:
+        elif len(arr) == 2: # US zip code
             r = requests.get(url=url, params={
                 'zip': arr[1],
                 'appId': apiKey,
             })
-        else:
+        else: # insufficient or extra info provided
             print('The form of the request was invalid')
             r = None
         if r is not None:
             resp = r.json()
-            if resp['cod'] != 200:
+            if resp['cod'] != 200: # make sure the response is valid
                 print('There was an error with your request: ' + resp['message'])
             else:
                 print('{desc} {maxTemp} degrees Kelvin'.format(desc=resp['weather'][0]['main'], maxTemp=resp['main']['temp_max']))

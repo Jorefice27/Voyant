@@ -11,8 +11,9 @@ while True:
     userInput = input('$').strip()
     if userInput.lower() == 'exit':
         break
+    # expecting input with the form "checkpassword {password}"
     arr = userInput.split(' ')
-    if len(arr) != 2:
+    if len(arr) != 2: # doesn't match the above form
         print('Invalid input')
     elif arr[0].lower() != 'checkpassword':
         print('Invalid input')
