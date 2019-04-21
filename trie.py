@@ -19,7 +19,6 @@ class Trie:
         cur = self.root
         for c in string:
             if c not in cur.children:
-                # print(c + ' is not in children, creating new node')
                 cur.addNode(c)
             cur = cur.children[c]
         cur.isLeaf = True
@@ -28,8 +27,6 @@ class Trie:
         cur = self.root
         for c in val:
             if c not in cur.children:
-                # print('Could not find ' + c)
                 return False
             cur = cur.children[c]
-            # print('Found ' + c)
         return cur.isLeaf

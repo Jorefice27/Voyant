@@ -1,1 +1,6 @@
-env/*
+venv/*
+__pycache__/*
+djangoServer/djangoServer/__pycache__/*
+djangoServer/fizzbuzz/__pycache__/*
+djangoServer/fizzbuzz/migrations/__pycache__/*
+.vscode/*

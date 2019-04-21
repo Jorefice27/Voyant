@@ -10,7 +10,6 @@ while True:
     if userInput.lower() == 'exit':
         break
     arr = userInput.split(' ')
-    print(arr)
     if len(arr) != 2:
         print('Invalid input')
     elif arr[0].lower() != 'checkpassword':
